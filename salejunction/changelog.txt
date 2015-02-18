@@ -1,0 +1,70 @@
+== Changelog ==
+
+= Theme Name: SaleJunction =
+
+= Version: 1.0.8 =
+1. Fixed Fatal Error issue removed function salejunction_thumbnail_resize().
+
+= Version: 1.0.7 =
+1. License and copyright issue: fixed.
+2. Removed ddsmoothmenu license/copyright attribution.
+3. Code derivative attribution in the readme file.
+4. footer.php: Credit link escaped.
+5. Escaped all instances of home_url('/') 
+6. Fixed: you'll also need to add the global $content_width.
+7. Fixed: inkthemes-functions.php: use wp_enqueue_script('comment-reply'); only.
+8. Replaced init with wp_enqueue_scripts.
+9. Removed function:  salejunction_total_product_count() that falls under plugin territory.
+10. Fixed: All public facing text in this file must be translation ready.
+11. inkthemes-plugin-notify.php: changed to recommended.
+12. admin-interface: translation ready.
+13. removed: dynamic-image.php
+14. removed: wp_reset_query(); from shop_loop.php
+15. Fixed: No older/newer post links when the front page is set to static page with the blog feed on a different page
+16. Improved CSS for definition list orderlist, unordered list.
+17. All other Css related issues fixed.
+
+= Version: 1.0.6 =
+1. Changed home.php to front-page.php.
+
+= Version: 1.0.5 =
+1. home.php added as site homepage.
+2. Footer.php all data output escaped, included credits link.
+3. header.php improved. Removed bloginfo('stylesheet_url')
+4. Removed bloginfo('stylesheet_url').
+5. All instances of home_url() escaped
+6. Sidebar translation ready.
+7. single-post renamed to post.
+8. Theme options page banner improved. Proper link added.
+9. Nexy Post, Previus post link added.
+10. Article with long string issue
+
+= Version: 1.0.4 =
+1. Added use on unlimited domain in Theme URI: http://www.inkthemes.com/ecommerce-wordpress-org/
+2. Social url removed.
+3. Theme Options Properly Sanitized.
+
+= Version: 1.0.3 =
+1. Fixed issue - Homepage displays only 2 Posts.
+2. Fixed issue - <title> should include a single call to the wp_title function.
+3. Removed (function_exists('has_post_thumbnail').
+
+= Version: 1.0.2 =
+1. Use of undefined constant SLUG issue fixed.
+2. Undefined index: rtype issue fixed.
+3. Site title and description placed default instead of default logo.
+4. Constant Post limit on home page removed and implemented by reading settings.
+5. Widget CSS improved.
+6. Added wp_link_pages() function on pages.
+7. Search result info font size improved.
+8. Post Meta date link issue fixed.
+9. Issue in reply button usability fixed.
+10.Deprecated functions removed.
+11.Theme thumbnail issue fixed.
+
+= Version: 1.0.1 =
+* * Theme Style Updated.
+
+= Version: 1.0 =
+* * SaleJunction Theme is created on 30/12/2013.
+
