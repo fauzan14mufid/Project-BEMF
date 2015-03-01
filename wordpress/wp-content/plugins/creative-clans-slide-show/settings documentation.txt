@@ -1,0 +1,391 @@
+Creative Clans Slide Show v1.3.4
+
+Copyright 2008-2010 Guido Tonnaer
+
+
+For the most up-to-date documentation, see the Creative Clans website:
+http://www.creativeclans.nl
+
+
+Slide settings
+--------------
+
+- Path
+	* Compulsory *
+	Contains the absolute path (meaning it has to start with 'http://') to 
+	the slides folder, WITH the final slash.
+
+- Load all images from folder
+	If 'no', you must specify the images to be used in the 'Images' setting.
+	If 'yes', the slideshow will use all images present in the folder
+	defined in the 'Path' setting. 
+	To use this option, the image folder has to be present on the same site
+	as the slide show. No cross domain access is allowed.
+	
+	Attention: if set to 'yes', the 'Images', 'Captions', 'Links' and 'Link
+	           targets' settings will be ignored. This means you won't be 
+	           able to set different captions, links and link targets for 
+	           each slide.
+
+- Images
+	* Compulsory if 'Load all images from folder' is set to 'no' *
+	List of the image names, one image per line.
+	(if you didn't use the 'path' setting, or only put a part of the path
+        there (because you've enabled 'Organize my uploads into month- and 
+        year-based folders' in the Wordpress miscellanious settings, or anyway
+        the images are stored in different folders), then you'll have to add
+        the (missing part of) the path to the image names).
+
+	Attention: this setting is ignored if 'Load all images from folder' is
+	           set to 'yes'.
+
+- Captions
+	List of the image captions, one caption per line.
+	If you don't want to give a caption to one of the images, just leave a 
+	blank line.
+	If no caption is specified for a slide, the default caption text is used 
+	(see Caption settings - Text below).
+
+	Attention: this setting is ignored if 'Load all images from folder' is
+	           set to 'yes'.
+
+- Links
+	List of the image links, one link per line.
+	If you don't want to set a link for one of the images, just leave a blank
+	line.
+	If no link is specified for a slide, the default link is used 
+	(see Several settings - Link below).
+
+	Attention: this setting is ignored if 'Load all images from folder' is
+	           set to 'yes'.
+
+- Link targets
+	List of the image link targets, one target per line. 
+	If you don't want to set a link target for one of the images, just leave a blank
+	line.
+	If no target is specified for a slide, the default link target is used 
+	(see Several settings - Link Target below).
+	Possible values:
+	- _self   (The current frame in the current window)
+	- _blank  (A new window)
+	- _parent (The parent of the current frame)
+	- _top    (The top-level frame in the current window)
+
+	Attention: this setting is ignored if 'Load all images from folder' is
+	           set to 'yes'.
+
+
+
+Several settings
+----------------
+
+- Title
+	The title that will be shown above the slide show.
+
+- Width
+	The width of the slide show window in pixels.
+
+- Height
+	The height of the slide show window in pixels.
+
+- Background Color
+	Background color  
+	Value has to be in the format 0xXXXXXX  
+	(see Color codes below for more info on the format)
+	Default: 0xFFFFFF (white) 
+
+- Background transparancy
+	Background transparancy value
+	Value has to be numeric from 0 (invisible) to 1.0 (solid) 
+	Default: 1.0 
+
+- Loops
+	Number of times the slide show loops through the images
+	Value has to be numeric
+	Value 0 means infinite loops
+	Default: 0 
+
+- Wait
+	Time the slide is shown (in milliseconds)
+	The waiting starts at the end of the transition effect
+	Value has to be numeric  
+	Default: 3000 (3 seconds)
+
+- Effect Time
+	Duration of the transition effect between slides (in seconds)
+	Value has to be numeric  
+	Default: 1 
+
+- Include Effects
+	List of transition effects to be used, one effect per line.
+	If you want to use all available effects, leave this parameter empty.
+	Possible values: see further down
+	Default: empty
+
+- Exclude Effects
+	List of transition effects not to be used, one effect per line.
+	If you want to use all available effects, leave this parameter empty.
+	Possible values: see further down   
+	Default: empty
+
+- Stop on Mouse Over
+	If 'yes', the slide show is paused while the mouse hovers over the slideshow
+	Possible values: yes, no   
+	Default: no
+
+- Enable Links
+	If 'yes', clicking on the slide will open the link defined for the slide in 
+	'Slide settings - Links', or, if that doesn't have a value, the link defined 
+	in 'Several settings - Link'.
+	Possible values: yes, no
+	Default: no
+
+- Link
+	Specifies one link for all slides.
+	Used as link value when no link has been specified for the single slide in
+	'Slide settings - Links'.
+	Default: empty
+
+- Link Target
+	Specifies the target for the link.
+	Used as target value when no target has been specified for the single
+	slide in 'Slide settings - Links'.
+	Possible values:
+	- The current frame in the current window.
+	- A new window.
+	- The parent of the current frame.
+	- The top-level frame in the current window.
+	Default: A new window
+
+- Order
+	Order in which the slides are shown
+	Possible values: forward, backward, random
+	Default: forward
+
+- Number of slides
+	Number of slides to be shown
+	Value has to be numeric
+	Value 0 means all slides
+	Is used when Order is random
+	Default: 0 
+
+- Auto resize images
+	If 'yes', the images will be resized (if necessary) to
+	exactly fit the defined width and height of the slide
+	show.
+	Possible values: yes, no
+	Default: yes (to ensure backward compatibility with 
+	              older versions of the slide show)
+
+- Enable proxy for cross-domain access
+	If 'yes', cross domain image loading is enabled 
+	Possible values: yes, no   
+	Default: no
+
+- Watermark image
+	Has to contain the absolute path (meaning it has to start
+	with 'http://') to the image to be used, or leave it empty 
+	if you don't want to use it.  
+	Default: empty
+
+- Watermark transparancy
+	Watermark image transparancy value
+	Is used when 'Watermark image' contains a value
+	Value has to be numeric from 0 (invisible) to 1.0 (solid)
+	Default: 1.0 
+
+- Watermark full screen
+	If 'yes', the watermark image will be resized to 
+	exactly fit the defined width and height of the slide
+	show.
+	Possible values: yes, no
+	Default: no
+
+- Watermark horizontal offset
+	The watermark horizontal offset is used when
+	'Watermark full screen' is set to 'no'. 
+	Value has to be numeric.
+	Default: 0
+ 
+- Watermark vertical offset
+	The watermark vertical offset is used when
+	'Watermark full screen' is set to 'no'. 
+	Value has to be numeric.
+	Default: 0
+
+- Dynamic XML creation
+	If 'yes', the widget will not create any files in the
+	widget folder. The XML files needed will be created
+	'on the fly' every time the slide show is loaded.
+	Use this option when the widget is giving you write 
+	permission errors, and setting the widget folder's
+	permissions to 755 doesn't help.
+
+
+Border settings
+---------------
+
+- Style
+	Choose the border style
+	Possible values: none, solid, blurred, image  
+	Default: none 
+
+- Color
+	Is used when Border style is solid or blurred
+	Value has to be in the format 0xXXXXXX  
+	(see Color codes below for more info on the format)
+	Default: 0x000000 (black) 
+
+- Thickness
+	Border thickness in px
+	Is used when Border style is solid or blurred
+	Value has to be numeric  
+	Default: 1.0
+
+- Transparancy
+	Border transparancy value
+	Is used when Border style is solid or blurred
+	Value has to be numeric from 0 (invisible) to 1.0 (solid)
+	Default: 1.0 
+
+- Image
+	Is used when Border style is image
+	Has to contain the absolute path (meaning it has to start
+	with 'http://') to the image to be used  
+	Default: empty
+
+
+Caption settings
+----------------
+
+- Style
+	Choose the caption style.
+	Possible values: none, fixed, hide (appears when the mouse hovers over the slide) 
+	Default: none 
+
+- Type
+	Is used when Caption style is fixed or hide
+	Possible values: text, image  
+	Default: text 
+
+- Background Color
+	Is used when Caption style is fixed or hide, and Caption type is text
+	Value has to be in the format 0xXXXXXX  
+	(see Color codes below for more info on the format)
+	Default: 0x000000 (black) 
+
+- Color
+	Caption text color
+	Is used when Caption style is fixed or hide, and Caption type is text
+	Value has to be in the format 0xXXXXXX  
+	(see Color codes below for more info on the format)
+	Default: 0xFFFFFF (white) 
+
+- Text
+	Is used when Caption style is fixed or hide, and Caption type is text
+	Used as caption text when no caption text has been specified for the single slide in
+	'Slide settings - Captions'.
+	Default: empty
+
+- Text right margin
+	Is used when Caption style is fixed or hide, and Caption type is text
+	Has to be a numeric value
+	Default: 0
+
+- Text left margin
+	Is used when Caption style is fixed or hide, and Caption type is text
+	Has to be a numeric value
+	Default: 0
+
+- Text bottom margin
+	Is used when Caption style is fixed or hide, and Caption type is text
+	Has to be a numeric value
+	Default: 0
+
+- Font
+	Is used when Caption style is fixed or hide, and Caption type is text
+	If the font doesn't exist, the default flash font (Times New Roman) will be used
+	Default: Times New Roman
+
+- Font size
+	Is used when Caption style is fixed or hide, and Caption type is text
+	Default: 10
+
+- Transparancy
+	Caption background transparancy value
+	Is used when Caption style is fixed or hide
+	Value has to be numeric from 0 (invisible) to 1.0 (solid)
+	Default: 1.0 
+
+- Position
+	Is used when Caption style is fixed or hide
+	Possible values: top, bottom, offset  
+	Default: top 
+
+- Horizontal offset
+	Is used when Caption position is offset
+	Value has to be numeric
+	Default: 0 
+
+- Vertical offset
+	Is used when Caption position is offset
+	Value has to be numeric
+	Default: 0 
+
+- Image
+	Is used when Caption style is fixed or hide, and Caption type is image
+	Has to contain the absolute path (meaning it has to start with
+	'http://') to the image to be used  
+	Default: empty
+
+
+
+Transition effects
+-----------------------------------------------
+
+- none
+- fadeout
+- fadein
+- upout
+- upin
+- downout
+- downin
+- leftout
+- leftin
+- rightout
+- rightin
+- leftupout
+- leftupin
+- rightupout
+- rightupin
+- rightdownout
+- rightdownin
+- leftdownout
+- leftdownin
+- shrinkleftup
+- growleftup
+- shrinkleftdown
+- growleftdown
+- shrinkrightup
+- growrightup
+- shrinkrightdown
+- growrightdown
+- shrinkcenter
+- growcenter
+
+
+Color codes
+--------------------
+All color codes that can be set in the widget, must be set
+in the form 
+
+0xXXXXXX
+
+where XXXXXX is the 6 digit hexadecimal color code.
+For example, 0x000000 is black, and 0xFFFFFF is white.
+
+On the internet, a search for example for 'hex color codes' 
+will give many sites where you can find these codes.
+
+An exhaustive chart can be found here:
+http://www.pagetutor.com/common/bgcolors1536.html
