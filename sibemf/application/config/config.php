@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'localhost/sibemf/index.php';
+$config['base_url'] = 'localhost/sibemf/';
 
 /*
 |--------------------------------------------------------------------------
