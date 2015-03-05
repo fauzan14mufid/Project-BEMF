@@ -46,7 +46,7 @@ class cformabsen extends CI_Controller
   				'ID_Staff'=> $staff,
   				'keterangan' => $absen
   			);
-  			//$this->mformabsen->tambah2($data_1);
+  			$this->mformabsen->tambah2($data_1);
   		}
   	
   		

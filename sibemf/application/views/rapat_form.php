@@ -148,7 +148,7 @@ body {
 
 <body >
 <!-- multistep form -->
-<form id="msform" action="cformabsen/ambil_data_form" method="post">
+<form id="msform" action="ambil_data_form" method="post">
 <!-- <form id="msform" action="localhost/sibemf/index.php/cformabsen/ambil_data_form" method="post"> -->
 
    <!-- progressbar -->
@@ -179,17 +179,17 @@ body {
    
             <?php
                $i=0;
-               foreach($hasil->result() as $data)
+               foreach($Staff as $data)
                {
-                  $i=$i+1;
+                  
                   echo "<tr><td td style='text-align:center'>".$data->ID_Staff."</td></td>";
                   echo "<td td style='text-align:left'>".$data->Nama."</td></td>";
                ?>
                
-               <td><input type='checkbox' name='absen<?php echo $i?>' value='1'></td> <!-- hadir -->
-               <td><input type='checkbox' name='absen<?php echo $i?>' value='2'></td> <!-- izin -->
-               <td><input type='checkbox' name='absen<?php echo $i?>' value='0'></td> <!-- alfa -->
-               <input type="hidden" name="id_staff<?php echo $i ?>" value="<?php echo $data->ID_Staff ?>" />
+               <td><input type='radio' name='absen<?php echo $i?>' value='1' checked="checked"></td> <!-- hadir -->
+               <td><input type='radio' name='absen<?php echo $i?>' value='2'></td> <!-- izin -->
+               <td><input type='radio' name='absen<?php echo $i?>' value='0'></td> <!-- alfa -->
+               <input type="hidden" name="id_staff<?php echo $i ?>" value="<?php echo $data->ID_Staff;$i=$i+1;?>" />
             
                </tr>
                   <?php
@@ -200,7 +200,7 @@ body {
       
       
       <input type="button" name="previous" class="previous action-button" value="Previous" />
-      <input type="button" name="submit" class="submit action-button" value="Submit" />
+      
    </fieldset>
 </form>
 
@@ -300,3 +300,11 @@ $(".previous").click(function(){
 
 </body>
 </html>
+
+
+
+
+
+
+
+

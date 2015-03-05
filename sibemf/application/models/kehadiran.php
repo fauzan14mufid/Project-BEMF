@@ -7,11 +7,6 @@
  */
 
 class Kehadiran extends CI_Model {
-    public function setHadirRapat($data)
-    {
-        $this->db->insert('kehadiran',$data);
-    }
-
     public function getKehadiranRapat($nrp)
     {
         $this->db->select('kehadiran.keterangan as KETERANGAN, rapat.Nama as NAMA_RAPAT, rapat.Tanggal as TANGGAL_RAPAT,
@@ -20,6 +15,9 @@ class Kehadiran extends CI_Model {
         $this->db->join('rapat','rapat.ID_Rapat = kehadiran.id_rapat');
         $query = $this->db->get_where(array('kehadiran.id_staff'=>$nrp));
         return $query;
+    }
+    public function setKehadiran($data){
+        $this->db->insert('kehadiran',$data);
     }
 }
 
