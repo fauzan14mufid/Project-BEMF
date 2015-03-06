@@ -165,7 +165,7 @@ body {
       
    </fieldset>
   
-   <fieldset style="width:600px;">
+   <fieldset style="width:600px;margin-left:-100px;">
       <h2 class="fs-title">Absensi Kehadiran Staff</h2>
       <table class="tabel" style="margin-left 10%">
             <tr>
@@ -203,13 +203,9 @@ body {
       
    </fieldset>
 </form>
-
-<!-- jQuery -->
-<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/sibemf/assets/jquery-1.9.1.min.js" type="text/javascript"></script>
 <!-- jQuery easing plugin -->
-<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-
-
+<script src="/sibemf/assets/jquery.easing.min.js" type="text/javascript"></script>
 <script>
 /* 
 Orginal Page: http://thecodeplayer.com/walkthrough/jquery-multi-step-form-with-progress-bar 

@@ -148,36 +148,25 @@ body {
 
 <body >
 <!-- multistep form -->
-<form id="msform" action="ambil_data_form" method="post">
-<!-- <form id="msform" action="localhost/sibemf/index.php/cformabsen/ambil_data_form" method="post"> -->
+<form id="msform" action="formlogin" method="post">
 
-   <!-- progressbar -->
-   
-   <!-- fieldsets -->
-   <<fieldset>
-        <h2 class="fs-title">Social Profiles</h2>
-        <h3 class="fs-subtitle">Your presence on the social network</h3>
-        <input type="text" name="twitter" placeholder="Twitter" />
-        <input type="text" name="facebook" placeholder="Facebook" />
-        <input type="text" name="gplus" placeholder="Google Plus" />
-        <input type="button" name="previous" class="previous action-button" value="Previous" />
-        <input type="button" name="next" class="next action-button" value="Next" />
+   <fieldset>
+        <h2 class="fs-title">Login</h2>
+        <input type="text" name="username" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
+        <input type="submit" name="submit" class="submit action-button" value="Submit" />
     </fieldset>
   
 </form>
 
 <!-- jQuery -->
-<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/sibemf/assets/jquery-1.9.1.min.js" type="text/javascript"></script>
 <!-- jQuery easing plugin -->
-<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+<script src="/sibemf/assets/jquery.easing.min.js" type="text/javascript"></script>
 
 
 <script>
-/* 
-Orginal Page: http://thecodeplayer.com/walkthrough/jquery-multi-step-form-with-progress-bar 
 
-*/
-//jQuery time
 var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
