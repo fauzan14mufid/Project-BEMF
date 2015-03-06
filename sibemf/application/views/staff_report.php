@@ -2,7 +2,7 @@
 <head>
     <!-- kyaa :3 -->
     <meta charset="utf-8">
-    <title> Annisaa Fitri Shabrina | BEM FTIF ITS 2014</title>
+    <title> <?php echo $Staff->Nama; ?> | BEM FTIF ITS 2014</title>
     <link rel="stylesheet" href="<?php echo asset_url();?>bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo asset_url();?>staff.css">
     <script type="text/javascript" src="<?php echo asset_url();?>jquery-1.10.2.min.js"></script>
@@ -37,9 +37,10 @@
 		      <div class="panel-body">
 		       <ul>
 				   <?php foreach($Kehadiran as $row){
-					   echo '<li>$row->nama</li>';
+				   	if($row->KETERANGAN == 1)
+					   echo '<li>'.$row->NAMA_RAPAT.'</li>';
 				   } ?>
-		       	<!--<li>Rapat Kerja BEM</li><li>Evaluasi Paruh Tahun</li><li>BEM Gathering 1</li><li>Pleno 1</li>-->		       </ul>
+		    	      </ul>
 		      </div>
 		    </div>
 		  </div>
@@ -52,6 +53,10 @@
 		    <div id="collapseTwo" class="panel-collapse collapse">
 		      <div class="panel-body">
 		       	<ul>
+		       	<?php foreach($Kehadiran as $row){
+				   	if($row->KETERANGAN == 2)
+					   echo '<li>'.$row->NAMA_RAPAT.'</li>';
+				   } ?>
 		       	</ul>
 		      </div>
 		    </div>
@@ -65,7 +70,11 @@
 		    <div id="collapseThree" class="panel-collapse collapse">
 		      <div class="panel-body">
 		        <ul>
-		       	<li>BEM Gathering 2</li>		       </ul>
+		       	<?php foreach($Kehadiran as $row){
+				   	if($row->KETERANGAN == 0)
+					   echo '<li>'.$row->NAMA_RAPAT.'</li>';
+				   } ?>		       
+				 </ul>
 		      </div>
 		    </div>
 		  </div>

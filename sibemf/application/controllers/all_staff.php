@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andre.na70
- * Date: 3/2/2015
- * Time: 10:36 PM
- */
+
 
 class All_Staff extends CI_Controller {
     public function __construct()
@@ -22,10 +17,13 @@ class All_Staff extends CI_Controller {
         $this->load->view('__view__',$data);
     }
 
-    public function staff($id)
+    public function staff()
     {
+        $id = 1;
         $data['Staff'] = $this->Staff->getDataStaff($id)->row();
+        //print_r($data['Staff']);
         $data['Kehadiran'] = $this->Kehadiran->getKehadiranRapat($id)->result();
+        //print_r($data['Kehadiran']);
         $this->load->view('staff_report',$data);
     }
 }
