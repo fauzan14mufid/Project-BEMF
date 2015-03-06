@@ -31,12 +31,15 @@ class Isi_Absen extends CI_Controller {
             'Tempat' => $tempatrapat,
             'ID_Departemen' => '1'
         );
-        echo "tes1";
+        $this->Rapat->setDataRapat($data_rapat); 
+        //print_r ($data_rapat);
+        $id_rapat = $this->Rapat->getIDRapat()->ID_Rapat;
+        //echo $id_rapat;
         for($i=0 ; $i<$jumlah ; $i++){
             $absen[$i]= $this->input->post('absen'.$i);
             $staff[$i]= $this->input->post('id_staff'.$i);
             $data_kehadiran[$i] = array (
-                'id_rapat' => '1',
+                'id_rapat' => $id_rapat,
                 'id_staff'=> $staff[$i],
                 'keterangan' => $absen[$i]
             );
@@ -44,7 +47,7 @@ class Isi_Absen extends CI_Controller {
            $this->Kehadiran->setKehadiran($data_kehadiran[$i]);
         }
 
-        $this->Rapat->setDataRapat($data_rapat);
+        
     }
 }
 

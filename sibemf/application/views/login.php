@@ -1,276 +1,272 @@
-<!DOCTYPE html>
-<?php
-if (isset($_POST['username'])) {
-    $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-    include "$root\web2\connection\connection.php";
-    $query = "SELECT * FROM pelanggan WHERE user_pel='$_POST[username]' and pass_pel='$_POST[password]'";
-    $result = mysqli_fetch_array(mysqli_query($link, $query));
-    if (!$result) {
-        $query = "SELECT * FROM admin WHERE user_admin='$_POST[username]' and pass_admin='$_POST[password]'";
-        $result = mysqli_fetch_array(mysqli_query($link, $query));
-        if (!$result) {
-            header("Location: login.php?error=true");
-        } else {
-            setcookie("id", "$result[id_admin]", time() + (3600 * 24));
-            setcookie("nama", "$result[user_admin]", time() + (3600 * 24));
-            setcookie("tipe", "admin", time() + (3600 * 24));
-            header("Location: index.php");
-        }
-    } else {
-        setcookie("id", "$result[id_pel]", time() + (3600 * 24));
-        setcookie("nama", "$result[user_pel]", time() + (3600 * 24));
-        setcookie("tipe", "pelanggan", time() + (3600 * 24));
-        header("Location: index.php");
-    }
-}
-?>
-<html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Log in BelanyaYuk.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Form Absen Staff BEM FTIf</title>
 <style>
 
-html, body
-{
-    height: 100%;
+/*custom font*/
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html {
+   height: 100%;
+   /*Image only BG fallback*/
+   background: url('http://thecodeplayer.com/uploads/media/gs.png');
+   /*background = gradient + image pattern combo*/
+   background: 
+      linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), 
+      url('http://thecodeplayer.com/uploads/media/gs.png');
 }
 
-body
-{
-    font: 12px 'Lucida Sans Unicode', 'Trebuchet MS', Arial, Helvetica;    
-    margin: 0;
-    background-color: #d9dee2;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#ebeef2), to(#d9dee2));
-    background-image: -webkit-linear-gradient(top, #ebeef2, #d9dee2);
-    background-image: linear-gradient(top, #ebeef2, #d9dee2);    
+body {
+   font-family: montserrat, arial, verdana;
+}
+/*form styles*/
+#msform {
+   width: 400px;
+   margin: 50px auto;
+   text-align: center;
+   position: relative;
+}
+#msform fieldset {
+   background: white;
+   border: 0 none;
+   border-radius: 3px;
+   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+   padding: 20px 30px;
+   
+   box-sizing: border-box;
+   width: 80%;
+   margin: 0 10%;
+   
+   /*stacking fieldsets above each other*/
+   position: absolute;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+   display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+   padding: 15px;
+   border: 1px solid #ccc;
+   border-radius: 3px;
+   margin-bottom: 10px;
+   width: 100%;
+   box-sizing: border-box;
+   font-family: montserrat;
+   color: #2C3E50;
+   font-size: 13px;
+}
+/*buttons*/
+#msform .action-button {
+   width: 100px;
+   background: #27AE60;
+   font-weight: bold;
+   color: white;
+   border: 0 none;
+   border-radius: 1px;
+   cursor: pointer;
+   padding: 10px 5px;
+   margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+   box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+/*headings*/
+.fs-title {
+   font-size: 15px;
+   text-transform: uppercase;
+   color: #2C3E50;
+   margin-bottom: 10px;
+}
+.fs-subtitle {
+   font-weight: normal;
+   font-size: 13px;
+   color: #666;
+   margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+   margin-bottom: 30px;
+   overflow: hidden;
+   /*CSS counters to number the steps*/
+   counter-reset: step;
+}
+#progressbar li {
+   list-style-type: none;
+   color: white;
+   text-transform: uppercase;
+   font-size: 9px;
+   width: 33.33%;
+   float: left;
+   position: relative;
+}
+#progressbar li:before {
+   content: counter(step);
+   counter-increment: step;
+   width: 20px;
+   line-height: 20px;
+   display: block;
+   font-size: 10px;
+   color: #333;
+   background: white;
+   border-radius: 3px;
+   margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+   content: '';
+   width: 100%;
+   height: 2px;
+   background: white;
+   position: absolute;
+   left: -50%;
+   top: 9px;
+   z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+   /*connector not needed before the first step*/
+   content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+   background: #27AE60;
+   color: white;
 }
 
-#login
-{
-    background-color: #fff;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
-    background-image: -webkit-linear-gradient(top, #fff, #eee);
-    background-image: linear-gradient(top, #fff, #eee);  
-    height: 240px;
-    width: 400px;
-    margin: -150px 0 0 -230px;
-    padding: 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 0;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;  
-    -webkit-box-shadow:
-          0 0 2px rgba(0, 0, 0, 0.2),
-          0 1px 1px rgba(0, 0, 0, .2),
-          0 3px 0 #fff,
-          0 4px 0 rgba(0, 0, 0, .2),
-          0 6px 0 #fff,  
-          0 7px 0 rgba(0, 0, 0, .2);
-    box-shadow:
-          0 0 2px rgba(0, 0, 0, 0.2),  
-          0 1px 1px rgba(0, 0, 0, .2),
-          0 3px 0 #fff,
-          0 4px 0 rgba(0, 0, 0, .2),
-          0 6px 0 #fff,  
-          0 7px 0 rgba(0, 0, 0, .2);
-}
 
-#login:before
-{
-    content: '';
-    position: absolute;
-    z-index: -1;
-    border: 1px dashed #ccc;
-    top: 5px;
-    bottom: 5px;
-    left: 5px;
-    right: 5px;
-    -webkit-box-shadow: 0 0 0 1px #fff;
-    box-shadow: 0 0 0 1px #fff;
-    background: url('logofix.jpg');
-    background-size: 450px 300px;
-}
-
-h1
-{
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
-    text-transform: uppercase;
-    text-align: center;
-    color: white;
-    margin: 0 0 30px 0;
-    font: normal 26px/1 Verdana, Helvetica;
-    position: relative;
-}
-
-h1:after, h1:before
-{
-    background-color: #777;
-    height: 1px;
-    position: absolute;
-    top: 15px;
-    width: 120px;   
-}
-
-h1:after
-{ 
-    background-image: -webkit-gradient(linear, left top, right top, from(#777), to(#fff));
-    background-image: -webkit-linear-gradient(left, #777, #fff);
-    background-image: linear-gradient(left, #777, #fff);      
-    right: 0;
-}
-
-h1:before
-{
-    background-image: -webkit-gradient(linear, right top, left top, from(#777), to(#fff));
-    background-image: -webkit-linear-gradient(right, #777, #fff);
-    background-image: linear-gradient(right, #777, #fff);
-    left: 0;
-}
-
-fieldset
-{
-    border: 0;
-    padding: 0;
-    margin: 0;
-}
-
-#inputs input
-{
-    background: #f1f1f1 no-repeat;
-    padding: 15px 15px 15px 30px;
-    margin: 0 0 10px 0;
-    width: 353px; 
-    border: 1px solid #ccc;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
-    box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
-    opacity: 0.4;
-}
-
-#username
-{
-    background-position: 5px -2px !important;
-}
-
-#username:hover{
-    opacity: 1.0;
-}
-
-#password
-{
-    background-position: 5px -52px !important;
-}
-
-#password:hover{
-    opacity: 1.0;
-}
-
-#inputs input:focus
-{
-    background-color: #fff;
-    border-color: #e8c291;
-    outline: none;
-    -webkit-box-shadow: 0 0 0 1px #e8c291 inset;
-    box-shadow: 0 0 0 1px #e8c291 inset;
-}
-
-#actions
-{
-    margin: 25px 0 0 0;
-}
-
-#submit
-{		
-    background-color: #ffb94b;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#fddb6f), to(#ffb94b));
-    background-image: -webkit-linear-gradient(top, #fddb6f, #ffb94b);
-    background-image: linear-gradient(top, #fddb6f, #ffb94b);
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    
-    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
-     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
-    
-    border-width: 1px;
-    border-style: solid;
-    border-color: #d69e31 #e3a037 #d5982d #e3a037;
-
-    float: left;
-    height: 35px;
-    padding: 0;
-    width: 120px;
-    cursor: pointer;
-    font: bold 15px Arial, Helvetica;
-    color: #8f5a0a;
-}
-
-#submit:hover,#submit:focus
-{		
-    background-color: #fddb6f;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffb94b), to(#fddb6f));
-    background-image: -webkit-linear-gradient(top, #ffb94b, #fddb6f);
-    background-image: linear-gradient(top, #ffb94b, #fddb6f);
-}	
-
-#submit:active
-{		
-    outline: none;
-     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
-     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
-}
-
-#submit
-{
-  border: none;
-}
-
-#actions a
-{
-    color: #3151A2;    
-    float: right;
-    line-height: 35px;
-    margin-left: 10px;
-}
-
-#back
-{
-    display: block;
-    text-align: center;
-    position: relative;
-    top: 60px;
-    color: #999;
-}
 
 
 </style>
 </head>
 
-<body>
+<body >
+<!-- multistep form -->
+<form id="msform" action="ambil_data_form" method="post">
+<!-- <form id="msform" action="localhost/sibemf/index.php/cformabsen/ambil_data_form" method="post"> -->
 
-<div id="login">
-    <form method="post" actions="login.php">
-        <?php
-        if(isset($_GET['error']))
-        {
-            echo "Username / Password Salah";
-        }
-        ?> <br>
-    <h1><strong>Log in</strong></h1>
-    <fieldset id="inputs">
-		<input id="username" type="text" placeholder="Username" autofocus="" required="" name="username">
-		<input id="password" type="password" placeholder="Password" required="" name="password">
+   <!-- progressbar -->
+   
+   <!-- fieldsets -->
+   <<fieldset>
+        <h2 class="fs-title">Social Profiles</h2>
+        <h3 class="fs-subtitle">Your presence on the social network</h3>
+        <input type="text" name="twitter" placeholder="Twitter" />
+        <input type="text" name="facebook" placeholder="Facebook" />
+        <input type="text" name="gplus" placeholder="Google Plus" />
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
-    <fieldset id="actions">
-        <input type="submit" id="submit" value="Log in">
-        <a href="signup.php">Register</a>
-    </fieldset>
-    <a href="index.php" id="back">BelanjaYuk</a>
-    </form>
-</div>
+  
+</form>
+
+<!-- jQuery -->
+<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<!-- jQuery easing plugin -->
+<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+
+
+<script>
+/* 
+Orginal Page: http://thecodeplayer.com/walkthrough/jquery-multi-step-form-with-progress-bar 
+
+*/
+//jQuery time
+var current_fs, next_fs, previous_fs; //fieldsets
+var left, opacity, scale; //fieldset properties which we will animate
+var animating; //flag to prevent quick multi-click glitches
+
+$(".next").click(function(){
+   if(animating) return false;
+   animating = true;
+   
+   current_fs = $(this).parent();
+   next_fs = $(this).parent().next();
+   
+   //activate next step on progressbar using the index of next_fs
+   $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+   
+   //show the next fieldset
+   next_fs.show(); 
+   //hide the current fieldset with style
+   current_fs.animate({opacity: 0}, {
+      step: function(now, mx) {
+         //as the opacity of current_fs reduces to 0 - stored in "now"
+         //1. scale current_fs down to 80%
+         scale = 1 - (1 - now) * 0.2;
+         //2. bring next_fs from the right(50%)
+         left = (now * 50)+"%";
+         //3. increase opacity of next_fs to 1 as it moves in
+         opacity = 1 - now;
+         current_fs.css({'transform': 'scale('+scale+')'});
+         next_fs.css({'left': left, 'opacity': opacity});
+      }, 
+      duration: 800, 
+      complete: function(){
+         current_fs.hide();
+         animating = false;
+      }, 
+      //this comes from the custom easing plugin
+      easing: 'easeInOutBack'
+   });
+});
+
+$(".previous").click(function(){
+   if(animating) return false;
+   animating = true;
+   
+   current_fs = $(this).parent();
+   previous_fs = $(this).parent().prev();
+   
+   //de-activate current step on progressbar
+   $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+   
+   //show the previous fieldset
+   previous_fs.show(); 
+   //hide the current fieldset with style
+   current_fs.animate({opacity: 0}, {
+      step: function(now, mx) {
+         //as the opacity of current_fs reduces to 0 - stored in "now"
+         //1. scale previous_fs from 80% to 100%
+         scale = 0.8 + (1 - now) * 0.2;
+         //2. take current_fs to the right(50%) - from 0%
+         left = ((1-now) * 50)+"%";
+         //3. increase opacity of previous_fs to 1 as it moves in
+         opacity = 1 - now;
+         current_fs.css({'left': left});
+         previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+      }, 
+      duration: 800, 
+      complete: function(){
+         current_fs.hide();
+         animating = false;
+      }, 
+      //this comes from the custom easing plugin
+      easing: 'easeInOutBack'
+   });
+});
+
+//$(".submit").click(function(){
+//   return false;
+//})
+
+</script>
+
+
 
 </body>
 </html>
+
+
+
+
+
+
+
+
