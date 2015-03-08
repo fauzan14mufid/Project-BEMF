@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andre.na70
- * Date: 3/3/2015
- * Time: 10:38 AM
- */
 
 class All_Nilai extends CI_Controller {
     public function __construct()
@@ -17,20 +11,43 @@ class All_Nilai extends CI_Controller {
 
     public function isi()
     {
-        $data['Staff'] = $this->Staff->getAllStaff()->result();
+        session_start();
+        if(!isset($_SESSION['departemen'])){
+            redirect('home/login');
+        }   
+        echo $_SESSION['departemen'];
+        $id_departemen = $_SESSION['departemen'];
+        $data['Staff'] = $this->Staff->getStaffByDeptID($id_departemen)->result();
         // __view__ : tinggal ubah nama viewnya aja
-        $this->load->view('__view__',$data);
+        $this->load->view('formnilai',$data);
     }
 
     public function sendpenilaian()
     {
-        /* Tinggal pake */
-    }
+        session_start();
+        if(!isset($_SESSION['departemen'])){
+            redirect('home/login');
+        } 
+        $jumlah = $this->input->post('jumlah');
+        for($i=0 ; $i<$jumlah ; $i++){
+            $nilai[$i]= $this->input->post('nilai'.$i);
+            $staff[$i]= $this->input->post('id_staff'.$i);
+            $data_nilai[$i] = array (
+                'id_rapat' => $id_rapat,
+                'id_staff'=> $staff[$i],
+                'keterangan' => $nilai[$i]
+            );
 
-    public function all()
-    {
+           $this->penilaian->setNilai($data_nilai[$i]);
+        }
 
+        
     }
 }
+
+//    public function all()
+ //   {
+
+   // }
 
 ?>
