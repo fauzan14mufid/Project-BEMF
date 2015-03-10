@@ -148,7 +148,7 @@ body {
 
 <body >
 <!-- multistep form -->
-<form id="msform" action="<?php echo base_url()?>/isi_absen/ambil_data_form" method="post">
+<form id="msform" action="<?php echo base_url()?>all_nilai/sendpenilaian" method="post">
    <!-- progressbar -->
    
    <!-- fieldsets -->
@@ -175,11 +175,11 @@ body {
                   echo "<td td style='text-align:center'>".$data->Nama."</td></td>";
                ?>
             
-               <td><input type='radio' name='nilai<?php echo $i?>' value='1<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='2<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='3<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='4<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='5<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai<?php echo $i?>' value='A<?php echo $i?>' checked="checked"></td>
+               <td><input type='radio' name='nilai<?php echo $i?>' value='B<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai<?php echo $i?>' value='C<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai<?php echo $i?>' value='D<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai<?php echo $i?>' value='E<?php echo $i?>'></td>
             
                </tr>
                   <?php
@@ -189,7 +189,7 @@ body {
       
       
       <input type="button" name="next" class="next action-button" value="Next" />
-      <input type="submit" name="submit" class="submit action-button" value="Submit" />
+    
    </fieldset>
 
 
@@ -214,13 +214,14 @@ body {
                   $i=$i+1;
                   echo "<tr><td td style='text-align:center'>".$data->ID_Staff."</td></td>";
                   echo "<td td style='text-align:center'>".$data->Nama."</td></td>";
+                  
                ?>
             
-               <td><input type='radio' name='nilai<?php echo $i?>' value='1<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='2<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='3<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='4<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='5<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai1<?php echo $i?>' value='A<?php echo $i?>' checked="checked"></td>
+               <td><input type='radio' name='nilai1<?php echo $i?>' value='B<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai1<?php echo $i?>' value='C<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai1<?php echo $i?>' value='D<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai1<?php echo $i?>' value='E<?php echo $i?>'></td>
             
                </tr>
                   <?php
@@ -231,7 +232,7 @@ body {
       
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
-      <input type="submit" name="submit" class="submit action-button" value="Submit" />
+      
    </fieldset>
 
 
@@ -260,11 +261,11 @@ body {
                   echo "<td td style='text-align:center'>".$data->Nama."</td></td>";
                ?>
             
-               <td><input type='radio' name='nilai<?php echo $i?>' value='1<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='2<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='3<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='4<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='5<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai2<?php echo $i?>' value='A<?php echo $i?>' checked="checked"></td>
+               <td><input type='radio' name='nilai2<?php echo $i?>' value='B<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai2<?php echo $i?>' value='C<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai2<?php echo $i?>' value='D<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai2<?php echo $i?>' value='E<?php echo $i?>'></td>
             
                </tr>
                   <?php
@@ -275,7 +276,7 @@ body {
       
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
-      <input type="submit" name="submit" class="submit action-button" value="Submit" />
+      
    </fieldset>
 
 
@@ -304,11 +305,11 @@ body {
                   echo "<td td style='text-align:center'>".$data->Nama."</td></td>";
                ?>
             
-               <td><input type='radio' name='nilai<?php echo $i?>' value='1<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='2<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='3<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='4<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='5<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai3<?php echo $i?>' value='A<?php echo $i?>' checked="checked"></td>
+               <td><input type='radio' name='nilai3<?php echo $i?>' value='B<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai3<?php echo $i?>' value='C<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai3<?php echo $i?>' value='D<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai3<?php echo $i?>' value='E<?php echo $i?>'></td>
             
                </tr>
                   <?php
@@ -319,7 +320,7 @@ body {
       
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
-      <input type="submit" name="submit" class="submit action-button" value="Submit" />
+     
    </fieldset>
 
 
@@ -348,11 +349,11 @@ body {
                   echo "<td td style='text-align:center'>".$data->Nama."</td></td>";
                ?>
             
-               <td><input type='radio' name='nilai<?php echo $i?>' value='1<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='2<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='3<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='4<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='5<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai4<?php echo $i?>' value='A<?php echo $i?>' checked="checked"></td>
+               <td><input type='radio' name='nilai4<?php echo $i?>' value='B<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai4<?php echo $i?>' value='C<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai4<?php echo $i?>' value='D<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai4<?php echo $i?>' value='E<?php echo $i?>'></td>
             
                </tr>
                   <?php
@@ -363,7 +364,7 @@ body {
       
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
-      <input type="submit" name="submit" class="submit action-button" value="Submit" />
+      
    </fieldset>
 
 
@@ -392,11 +393,11 @@ body {
                   echo "<td td style='text-align:center'>".$data->Nama."</td></td>";
                ?>
             
-               <td><input type='radio' name='nilai<?php echo $i?>' value='1<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='2<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='3<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='4<?php echo $i?>'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='5<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai5<?php echo $i?>' value='1<?php echo $i?>' checked="checked"></td>
+               <td><input type='radio' name='nilai5<?php echo $i?>' value='2<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai5<?php echo $i?>' value='3<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai5<?php echo $i?>' value='4<?php echo $i?>'></td>
+               <td><input type='radio' name='nilai5<?php echo $i?>' value='5<?php echo $i?>'></td>
             
                </tr>
                   <?php
@@ -414,12 +415,9 @@ body {
 
 </form>
 
-<!-- jQuery -->
-<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/sibemf/assets/jquery-1.9.1.min.js" type="text/javascript"></script>
 <!-- jQuery easing plugin -->
-<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-
-
+<script src="/sibemf/assets/jquery.easing.min.js" type="text/javascript"></script>
 <script>
 /* 
 Orginal Page: http://thecodeplayer.com/walkthrough/jquery-multi-step-form-with-progress-bar 
@@ -500,12 +498,11 @@ $(".previous").click(function(){
    });
 });
 
-$(".submit").click(function(){
-   return false;
-})
+//$(".submit").click(function(){
+//   return false;
+//})
 
 </script>
-
 
 
 </body>
