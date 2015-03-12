@@ -155,13 +155,13 @@ body {
    
    <!-- fieldsets -->
    <fieldset>
-      <h2 class="fs-title">Absensi Kehadiran Rapat Departemen ....</h2>
+      <h2 class="fs-title">Absensi Kehadiran Rapat Departemen SRD</h2>
       <h3 class="fs-subtitle">Rapat Detail</h3>
       <input type="text" name="nama_rapat" placeholder="Kegiatan Rapat" />
       <input type="date" name="tanggal_rapat" placeholder="Tanggal Rapat" />
       <input type="text" name="tempat_rapat" placeholder="Tempat Rapat" />
        <input type="button" name="next" class="next action-button" value="Next" /> 
-     <!--  //<input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
+      <input type="submit" name="submit" class="submit action-button" value="Submit" />
       
    </fieldset>
   
@@ -190,8 +190,7 @@ body {
                <td><input type='radio' name='absen<?php echo $i?>' value='2'></td> <!-- izin -->
                <td><input type='radio' name='absen<?php echo $i?>' value='0'></td> <!-- alfa -->
                <input type="hidden" name="id_staff<?php echo $i ?>" value="<?php echo $data->ID_Staff;$i=$i+1;?>" />
-               
-      
+            
                </tr>
                   <?php
                }     
@@ -201,7 +200,6 @@ body {
       
       
       <input type="button" name="previous" class="previous action-button" value="Previous" />
-      <input type="submit" name="submit" class="submit action-button" value="Submit" />
       
    </fieldset>
 </form>

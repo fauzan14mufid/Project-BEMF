@@ -42,7 +42,7 @@ class Isi_Absen extends CI_Controller {
             'ID_Departemen' => $_SESSION['departemen']
         );
         $this->Rapat->setDataRapat($data_rapat); 
-        $id_rapat = $this->Rapat->getIDRapat($)->ID_Rapat;
+        $id_rapat = $this->Rapat->getIDRapat()->ID_Rapat;
         for($i=0 ; $i<$jumlah ; $i++){
             $absen[$i]= $this->input->post('absen'.$i);
             $staff[$i]= $this->input->post('id_staff'.$i);

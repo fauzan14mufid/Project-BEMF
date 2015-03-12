@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <title>Absensi BEM</title>
 
-    <link rel="stylesheet" href="bootstrap.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="octicons.css">
+    <link rel="stylesheet" href="<?php echo asset_url();?>bootstrap.css">
+    <link rel="stylesheet" href="<?php echo asset_url();?>style.css">
+    <link rel="stylesheet" href="<?php echo asset_url();?>octicons.css">
 
-    <link rel="icon"href="img/favicon3.ico" />
-    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="animatescroll.js"></script>
+    <!--<link rel="icon"href="<?php echo asset_url();?>img/favicon3.ico" />-->
+    <script type="text/javascript" src="<?php echo asset_url();?>jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="<?php echo asset_url();?>animatescroll.js"></script>
 
 </head>
 
@@ -26,47 +26,13 @@
                         <th>Nama</th>
                         <th><span></span></th>
                     </tr>
-                     
-                    <tr>
-                        <td><a href ='staff.php?id=1106053546'>Abdullah Izzuddiin Alqassam</a></td>
-                        <td><a href ='staff.php?id=1106053546'>5</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href ='staff.php?id=1106088146'>Ananta Besty</a></td>
-                        <td><a href ='staff.php?id=1106088146'>5</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href ='staff.php?id=1106088461'>Andika Dwi Mahendra R</a></td>
-                        <td><a href ='staff.php?id=1106088461'>5</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href ='staff.php?id=1106088783'>Anisa Fathukirani</a></td>
-                        <td><a href ='staff.php?id=1106088783'>5</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href ='staff.php?id=1106088202'>Annisaa Fitri Shabrina</a></td>
-                        <td><a href ='staff.php?id=1106088202'>4</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href ='staff.php?id=1106087824'>Fajar Iman</a></td>
-                        <td><a href ='staff.php?id=1106087824'>5</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href ='staff.php?id=1106014854'>Reza Mauliadi</a></td>
-                        <td><a href ='staff.php?id=1106014854'>5</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href ='staff.php?id=1106005736'>Siti Jumaliaya</a></td>
-                        <td><a href ='staff.php?id=1106005736'>5</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href ='staff.php?id=1106022244'>Tyas Meuthia</a></td>
-                        <td><a href ='staff.php?id=1106022244'>4</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href ='staff.php?id=1106053552'>Yahya Eru Cakra</a></td>
-                        <td><a href ='staff.php?id=1106053552'>4</a></td>
-                    </tr>            
+
+                    <?php
+                        foreach($Staff as $row){
+                            echo "<tr><a href='all_staff/staff?id=".$row->ID_Staff."'></a><td></td><td><a href='all_staff/staff?id=".$row->ID_Staff."'>".$row->Hadir."</td></tr>";
+                        }
+                    ?>
+
                 </table>
             </div>
         <div class ="col-md-4"></div>
