@@ -14,6 +14,7 @@ class All_Staff extends CI_Controller {
     public function daftar()
     {
         $data['Staff'] = $this->Staff->getAllStaff()->result();
+        $data['Departemen'] = $this->Departemen->getAllDepartemen()->result();
         $this->load->view('daftar_staff',$data);
     }
 
