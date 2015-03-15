@@ -72,7 +72,7 @@
             </div>
         <div class ="col-md-4"></div>
     </div>
-    <div id = "srd" class = "halaman">
+    <div id = "sospol" class = "halaman">
         <h1> SRD </h1>
         <div class ="col-md-4"></div>
             <div id = "pi" class="col-md-4 section">
@@ -98,7 +98,7 @@
             </div>
         <div class ="col-md-4"></div>
     </div>
-    <div id = "inaf" class = "halaman">
+    <div id = "internal" class="halaman">
         <h1> IA </h1>
         <div class ="col-md-4"></div>
             <div id = "pi" class="col-md-4 section">
@@ -125,7 +125,7 @@
             </div>
         <div class ="col-md-4"></div>
     </div>
-    <div id = "exaf" class = "halaman">
+    <div id = "minatbakat" class = "halaman">
         <h1> EA </h1>
         <div class ="col-md-4"></div>
             <div id = "pi" class="col-md-4 section">
@@ -152,7 +152,7 @@
             </div>
         <div class ="col-md-4"></div>
     </div>
-    <div id = "rtd" class = "halaman">
+    <div id = "relasi" class = "halaman">
         <h1> RTD </h1>
         <div class ="col-md-4"></div>
             <div id = "pi" class="col-md-4 section">
@@ -179,7 +179,7 @@
             </div>
         <div class ="col-md-4"></div>
     </div>
-    <div id = "osr" class = "halaman">
+    <div id = "bismit" class = "halaman">
         <h1> OSR </h1>
         <div class ="col-md-4"></div>
             <div id = "pi" class="col-md-4 section">
@@ -206,7 +206,7 @@
             </div>
         <div class ="col-md-4"></div>
     </div>
-    <div id = "osr" class = "halaman">
+    <div id = "kipi" class = "halaman">
         <h1> OSR </h1>
         <div class ="col-md-4"></div>
         <div id = "pi" class="col-md-4 section">
