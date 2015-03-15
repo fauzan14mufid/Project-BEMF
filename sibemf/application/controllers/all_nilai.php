@@ -4,6 +4,7 @@ class All_Nilai extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('session'); // barangkali perlu, hapus kalo bikin error
         $this->load->model('Staff');
         $this->load->model('Penilaian_Staff');
         $this->load->model('Penilaian');

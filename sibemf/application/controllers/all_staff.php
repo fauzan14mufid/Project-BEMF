@@ -5,6 +5,7 @@ class All_Staff extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('session'); // barangkali perlu, hapus kalo bikin error
         $this->load->model('Staff');
         $this->load->model('Rapat');
         $this->load->model('Kehadiran');

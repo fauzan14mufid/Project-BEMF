@@ -10,6 +10,7 @@ class Home extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('session'); // barangkali perlu, hapus kalo bikin error
         $this->load->model('Departemen');
         $this->load->model('User');
     }
@@ -19,9 +20,15 @@ class Home extends CI_Controller {
         $this->load->view('login');
     }
 
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        $this->load->view('submenu');
+    }
+
     public function index()
     {
-        $this->load->view('login');
+        $this->load->view('submenu');
     }
 
     public function formlogin()
@@ -38,7 +45,6 @@ class Home extends CI_Controller {
                 session_start();
                 $id = $q->ID_Departemen;
                 $_SESSION['departemen'] = $id;
-                //print_r ($id);
                 redirect('isi_absen/isi');
             }
         }

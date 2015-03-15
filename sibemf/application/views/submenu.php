@@ -4,7 +4,7 @@
     
 
 <!--	<script src="JS.js"> </script>-->
-	<link href="style.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo asset_url(); ?>/submenu/style.css" rel="stylesheet" type="text/css">
 
     <title>Menu BPH</title>
 </head>
@@ -12,7 +12,7 @@
     <h1 class="judul">Menu Badan Pengurus harian Departemen [SRD]</h1>
     
 	<ul>
-  <li><a href="[MASUKINLINKABSEN]" class="round green">ABSEN<span class="round">Memasukkan Absensi Staff BEM FTIf.</span></a></li>
+  <li><a href="#" class="round green">ABSEN<span class="round">Memasukkan Absensi Staff BEM FTIf.</span></a></li>
   <li><a href="#" class="round red">Penilaian<span class="round">Memasukkan Penilaian Perbulan Staff BEM FTIf. </span></a></li>
 </ul> 
 </body>
