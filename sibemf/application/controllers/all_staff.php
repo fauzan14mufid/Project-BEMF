@@ -25,6 +25,13 @@ class All_Staff extends CI_Controller {
         $data['Kehadiran'] = $this->Kehadiran->getKehadiranRapat($id)->result();
         $this->load->view('staff_report',$data);
     }
+
+    public function monthly()
+    {
+        $data['Staff'] = $this->Staff->getAllStaff()->result();
+        $data['Monthly'] = $this->Kehadiran->getMonthlyStaff()->result();
+        $this->load->view('__view__');
+    }
 }
 
 ?>

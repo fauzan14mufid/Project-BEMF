@@ -16,7 +16,7 @@ class Kehadiran extends CI_Model {
 
     public function getDetailAbsensiRapat($id_dp)
     {
-        $query = $this->db->query("SELECT rapatapat.ID_Rapat AS NO_RAPAT, rapat.Nama AS NAMA_RAPAT, rapat.Tempat AS TEMPAT_RAPAT, rapat.Tanggal AS TANGGAL_RAPAT, TEMP1.JUMLAH_HADIR AS HADIR, TEMP2.JUMLAH_IZIN AS IZIN, TEMP3.JUMLAH_ABSEN AS ABSEN FROM Rapat,
+        $query = $this->db->query("SELECT rapat.ID_Rapat AS NO_RAPAT, rapat.Nama AS NAMA_RAPAT, rapat.Tempat AS TEMPAT_RAPAT, rapat.Tanggal AS TANGGAL_RAPAT, TEMP1.JUMLAH_HADIR AS HADIR, TEMP2.JUMLAH_IZIN AS IZIN, TEMP3.JUMLAH_ABSEN AS ABSEN FROM Rapat,
                                     (
                                         SELECT COUNT(kehadiran.id_staff) AS JUMLAH_HADIR, kehadiran.id_rapat AS ID_RAPAT FROM kehadiran, rapat WHERE kehadiran.id_rapat = rapat.ID_Rapat AND rapat.ID_Departemen = ".$id_dp." AND kehadiran.keterangan = 1 GROUP BY kehadiran.id_rapat;
                                     ) AS TEMP1,
@@ -28,6 +28,11 @@ class Kehadiran extends CI_Model {
                                     ) AS TEMP3,
                                 WHERE rapat.ID_RAPAT = TEMP1.ID_Rapat AND rapat.ID_Rapat = TEMP2.ID_RAPAT AND rapat.ID_Rapat = TEMP3.ID_RAPAT");
         return $query;
+    }
+
+    public function getMonthlyStaff()
+    {
+        $query = $this->db->query("SELECT COUNT(kehadiran.id_staff) AS JUMLAH, kehadiran.id_staff AS ID_STAFF FROM kehadiran, rapat WHERE kehadiran.id_rapat = rapat.ID_Rapat GROUP BY rapat.ID_Departemen");
     }
 
     public function setKehadiran($data){
