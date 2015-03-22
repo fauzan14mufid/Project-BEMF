@@ -30,7 +30,7 @@ class All_Staff extends CI_Controller {
     {
         $data['Staff'] = $this->Staff->getAllStaff()->result();
         $data['Monthly'] = $this->Kehadiran->getMonthlyStaff()->result();
-        $this->load->view('__view__');
+        $this->load->view('staffOTH',$data);
     }
 }
 
