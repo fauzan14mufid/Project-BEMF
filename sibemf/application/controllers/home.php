@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: andre.na70
+ * Date: 3/2/2015
+ * Time: 8:25 PM
+ */
 
 class Home extends CI_Controller {
     public function __construct()
@@ -11,6 +17,13 @@ class Home extends CI_Controller {
     public function login()
     {
         $this->load->view('login');
+    }
+
+    public function logout()
+    {
+        $this->load->library('session');
+        $this->session->sess_destroy();
+        redirect('home/login');
     }
 
     public function index()
@@ -32,7 +45,6 @@ class Home extends CI_Controller {
                 session_start();
                 $id = $q->ID_Departemen;
                 $_SESSION['departemen'] = $id;
-                //print_r ($id);
                 redirect('isi_absen/home');
             }
         }

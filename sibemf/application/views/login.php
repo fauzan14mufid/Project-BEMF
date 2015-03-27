@@ -148,7 +148,7 @@ body {
 
 <body >
 <!-- multistep form -->
-<form id="msform" action="formlogin" method="post">
+<form id="msform" action="<?php echo base_url();?>home/formlogin" method="post">
 
    <fieldset>
         <h2 class="fs-title">Login</h2>

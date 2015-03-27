@@ -5,13 +5,18 @@ class Isi_Absen extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->library('session'); // barangkali perlu, hapus kalo bikin error
         $this->load->model('Staff');
         $this->load->model('Departemen');
         $this->load->model('Kehadiran');
         $this->load->model('Rapat');
         $this->load->helper('form');
         $this->load->helper('url');
+    }
+
+    public function home()
+    {
+        session_start();
+        $this->load->view('submenu');
     }
 
     public function isi()
@@ -55,8 +60,6 @@ class Isi_Absen extends CI_Controller {
 
            $this->Kehadiran->setKehadiran($data_kehadiran[$i]);
         }
-
-        
     }
 }
 

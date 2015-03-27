@@ -125,12 +125,11 @@ h1 {
 
 <body >
 
-<h1 align="center">Report Rapat BPH Departemen [SRD]</h1>
+<h1 align="center">Report Rapat BPH Departemen <?php echo $_SESSION['departemen'];?></h1>
 
 <table class="responstable" align="center">
   
   <tr>
-    <th width="20"><p>No</p></th>
     <th width="93" data-th="Driver details"><span>Nama Rapat</span></th>
     <th width="104">Tanggal Rapat</th>
     <th width="99">Tempat Rapat</th>
@@ -139,22 +138,22 @@ h1 {
     <th width="131">Jumlah Yang Absen</th>
   </tr>
   
-       <!--  <?php
+            <?php
                $i=0;
                foreach($Rapat as $data)
                {
+
                  // echo "<tr><td td style='text-align:center'> ".$i." </td></td>";
-                  echo "<tr><td td style='text-align:center'>".$data->NAMA_RAPAT."</td></td>";
-                  echo "<td td style='text-align:center'>".$data->TANGGAL_RAPAT."</td></td>";
-                  echo "<td td style='text-align:center'>".$data->TEMPAT_RAPAT."</td></td>";
-                  echo "<td td style='text-align:center'>".$data->HADIR."</td></td>";
-                  echo "<td td style='text-align:center'>".$data->IZIN."</td></td>";
-                  echo "<td td style='text-align:center'>".$data->ABSEN."</td></td>";
+                   echo "<tr><td td style='text-align:center'>".$data->NAMA_RAPAT."</td></td>";
+                   echo "<td td style='text-align:center'>".$data->TANGGAL_RAPAT."</td></td>";
+                   echo "<td td style='text-align:center'>".$data->TEMPAT_RAPAT."</td></td>";
+                   echo "<td td style='text-align:center'>" . $data->JUMLAH_HADIR . "</td></td>";
+                   echo "<td td style='text-align:center'>".$data->JUMLAH_IZIN."</td></td>";
+                   echo "<td td style='text-align:center'>".$data->JUMLAH_ABSEN."</td></td>";
                   //$i++;
-               ?>
-               <?php 
-             }
-             ?> -->
+
+                }
+             ?>
 
   
 </table>

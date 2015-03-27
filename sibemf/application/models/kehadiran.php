@@ -16,23 +16,28 @@ class Kehadiran extends CI_Model {
 
     public function getDetailAbsensiRapat($id_dp)
     {
-        $query = $this->db->query("SELECT rapat.ID_Rapat AS NO_RAPAT, rapat.Nama AS NAMA_RAPAT, rapat.Tempat AS TEMPAT_RAPAT, rapat.Tanggal AS TANGGAL_RAPAT, TEMP1.JUMLAH_HADIR AS HADIR, TEMP2.JUMLAH_IZIN AS IZIN, TEMP3.JUMLAH_ABSEN AS ABSEN FROM Rapat,
-                                    (
-                                        SELECT COUNT(kehadiran.id_staff) AS JUMLAH_HADIR, kehadiran.id_rapat AS ID_RAPAT FROM kehadiran, rapat WHERE kehadiran.id_rapat = rapat.ID_Rapat AND rapat.ID_Departemen = ".$id_dp." AND kehadiran.keterangan = 1 GROUP BY kehadiran.id_rapat;
-                                    ) AS TEMP1,
-                                    (
-                                        SELECT COUNT(kehadiran.id_staff) AS JUMLAH_IZIN, kehadiran.id_rapat AS ID_RAPAT FROM kehadiran, rapat WHERE kehadiran.id_rapat = rapat.ID_Rapat AND rapat.ID_Departemen = ".$id_dp." AND kehadiran.keterangan = 2 GROUP BY kehadiran.id_rapat;
-                                    ) AS TEMP2,
-                                    (
-                                        SELECT COUNT(kehadiran.id_staff) AS JUMLAH_ABSEN, kehadiran.id_rapat AS ID_RAPAT FROM kehadiran, rapat WHERE kehadiran.id_rapat = rapat.ID_Rapat AND rapat.ID_Departemen = ".$id_dp." AND kehadiran.keterangan = 0 GROUP BY kehadiran.id_rapat;
-                                    ) AS TEMP3,
-                                WHERE rapat.ID_RAPAT = TEMP1.ID_Rapat AND rapat.ID_Rapat = TEMP2.ID_RAPAT AND rapat.ID_Rapat = TEMP3.ID_RAPAT");
+        $query = $this->db->query("SELECT (
+                                            SELECT COUNT(kehadiran2.id_staff)
+                                            FROM kehadiran kehadiran2, rapat rapat2 WHERE rapat2.ID_Departemen = ".$id_dp." AND rapat2.ID_Rapat = kehadiran2.ID_Rapat AND kehadiran2.keterangan = 1
+                                            AND rapat2.ID_Rapat = rapat.ID_Rapat
+                                            ) AS JUMLAH_HADIR,
+                                            (
+                                            SELECT COUNT(kehadiran2.id_staff)
+                                            FROM kehadiran kehadiran2, rapat rapat2 WHERE rapat2.ID_Departemen = ".$id_dp." AND rapat2.ID_Rapat = kehadiran2.ID_Rapat AND kehadiran2.keterangan = 2
+                                            AND rapat2.ID_Rapat = rapat.ID_Rapat
+                                            ) AS JUMLAH_IZIN,
+                                            (
+                                            SELECT COUNT(kehadiran2.id_staff)
+                                            FROM kehadiran kehadiran2, rapat rapat2 WHERE rapat2.ID_Departemen = ".$id_dp." AND rapat2.ID_Rapat = kehadiran2.ID_Rapat AND kehadiran2.keterangan = 0
+                                            AND rapat2.ID_Rapat = rapat.ID_Rapat
+                                            ) AS JUMLAH_ABSEN, kehadiran.id_rapat AS ID_RAPAT, rapat.Nama AS NAMA_RAPAT, rapat.Tempat AS TEMPAT_RAPAT, rapat.Tanggal AS TANGGAL_RAPAT
+                                    FROM kehadiran, rapat WHERE rapat.ID_Departemen = ".$id_dp." AND kehadiran.id_rapat = rapat.ID_Rapat GROUP BY kehadiran.id_rapat");
         return $query;
     }
 
     public function getMonthlyStaff()
     {
-        $query = $this->db->query("SELECT COUNT(kehadiran.id_staff) AS JUMLAH, kehadiran.id_staff AS ID_STAFF FROM kehadiran, rapat WHERE kehadiran.id_rapat = rapat.ID_Rapat GROUP BY rapat.ID_Departemen");
+        $query = $this->db->query("SELECT COUNT(kehadiran.id_staff) AS JUMLAH, kehadiran.id_staff AS ID_STAFF FROM kehadiran, rapat WHERE kehadiran.id_rapat = rapat.ID_Rapat GROUP BY rapat.ID_Departemen ORDER BY COUNT(kehadiran.id_staff) DESC");
     }
 
     public function setKehadiran($data){
