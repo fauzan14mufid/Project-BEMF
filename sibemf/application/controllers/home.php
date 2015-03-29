@@ -21,9 +21,11 @@ class Home extends CI_Controller {
 
     public function logout()
     {
-        $this->load->library('session');
-        $this->session->sess_destroy();
+        session_unset();
+        session_destroy();
         redirect('home/login');
+        $this->clear_cache();
+        session_destroy();
     }
 
     public function index()
@@ -38,7 +40,7 @@ class Home extends CI_Controller {
             $password = $this->input->post('password');
             $cmatch = $this->User->matchUser($username,$password);
             if($cmatch==0){
-                redirect('home/index');
+                redirect('home/login');
             }
             else{
                 $q=$this->User->getUserxDetail($username)->row();
@@ -51,7 +53,8 @@ class Home extends CI_Controller {
             }
         }
         else{
-            redirect('home/index');
+            redirect('home/login');
+            session_destroy();
         }
     }
 }
