@@ -5,10 +5,12 @@ class All_Staff extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('session'); // barangkali perlu, hapus kalo bikin error
         $this->load->model('Staff');
         $this->load->model('Rapat');
         $this->load->model('Kehadiran');
         $this->load->model('Departemen');
+        $this->load->model('Penilaian');
     }
 
     public function daftar()
@@ -25,10 +27,12 @@ class All_Staff extends CI_Controller {
         $this->load->view('staff_report',$data);
     }
 
-    public function monthly()
+    public function monthly($bulan)
     {
-        $data['Staff'] = $this->Staff->getAllStaff()->result();
-        $data['Monthly'] = $this->Kehadiran->getMonthlyStaff()->result();
+        for($i=1;$i<7;$i++){
+            $data['dpt'.$i] =  $this->Penilaian->StaffOTMonth($bulan,$i);
+        }
+        //print_r($data);
         $this->load->view('staffOTH',$data);
     }
 }

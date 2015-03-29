@@ -140,13 +140,17 @@ body {
    color: white;
 }
 
-
+#headlogin{
+   color: white;
+   margin-top: 100px;
+}
 
 
 </style>
 </head>
 
 <body >
+   <h2 id="headlogin" align="center">MASUK KE SISTEM INFORMASI BADAN PENGURUS HARIAN</h2>
 <!-- multistep form -->
 <form id="msform" action="<?php echo base_url();?>home/formlogin" method="post">
 

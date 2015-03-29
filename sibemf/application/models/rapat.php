@@ -13,7 +13,7 @@ class Rapat extends CI_Model {
         return $query;
     }
 
-    public function getLastIDRapat()
+    public function getIDRapat()
     {
         $this->db->order_by("id_rapat","desc");
         $q = $this->db->get('rapat');

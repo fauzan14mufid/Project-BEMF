@@ -169,7 +169,25 @@
 	.yellow span {
 		background: rgba(161,145,0,.7);	
 
-	}</style>
+	}
+
+ul{
+	margin-top: 40px;
+}
+
+ul li{
+	margin-top: 0px;
+	margin-left: 40px;
+	margin-right: 40px;
+	padding: 30px;
+}
+.judul{
+	margin-top: 100px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+</style>
 
     
 
@@ -179,11 +197,11 @@
     <title>Menu BPH</title>
 </head>
 <body>
-    <h1 class="judul">Menu Badan Pengurus harian Departemen [SRD]</h1>
+    <h1 class="judul">Menu Badan Pengurus harian Departemen <?php echo $_SESSION['departement']; ?></h1>
     
-	<ul>
-  <li><a href="<?php echo base_url();?>isi_absen/isi" class="round green">ABSEN<span class="round">Memasukkan Absensi Staff BEM FTIf.</span></a></li>
-  <li><a href="<?php echo base_url();?>all_nilai/isi" class="round red">Penilaian<span class="round">Memasukkan Penilaian Perbulan Staff BEM FTIf. </span></a></li>
+<ul>
+  <li><a href="<?php echo base_url();?>isi_absen/isi" class="round green">Absen<span class="round">Memasukkan Absensi Staff BEM FTIf.</span></a></li>
+  <li><a href="<?php echo base_url();?>all_nilai/nilai" class="round red">Penilaian<span class="round">Memasukkan Penilaian Perbulan Staff BEM FTIf. </span></a></li>
 </ul> 
 </body>
 </html>

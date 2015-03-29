@@ -31,6 +31,7 @@ body {
    margin: 50px auto;
    text-align: center;
    position: relative;
+  min-height: 30%;
 }
 #msform fieldset {
    background: white;
@@ -141,12 +142,92 @@ body {
 }
 
 
+.nav{
+   margin-left: auto;
+   margin-right: auto;
+   width: 30%;
+   position: relative;
+}
+
+.nav ul {
+  list-style: none;
+  background-color: #444;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+ 
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+ 
+.nav a:hover {
+  background-color: #005f5f;
+}
+ 
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+ 
+@media screen and (min-width: 200px) {
+  .nav li {
+    width: 200px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+ 
+  /* Option 1 - Display Inline */
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+
+
+ 
+  /* Options 2 - Float
+  .nav li {
+    float: left;
+  }
+  .nav ul {
+    overflow: auto;
+    width: 600px;
+    margin: 0 auto;
+  }
+  .nav {
+    background-color: #444;
+  }
+  */
+}
+
 
 
 </style>
 </head>
 
 <body >
+
+       <header>
+    <div class="nav">
+      <ul>
+        <li class="menuutama"><a href="<?php echo site_url('isi_absen/home') ?>">Menu Utama</a></li>
+        <li class="logout"><a href="<?php echo site_url('home/logout') ?>">Log Out</a></li>
+      </ul>
+    </div>
+  </header>
 <!-- multistep form -->
 <form id="msform" action="<?php echo base_url()?>all_nilai/sendpenilaian" method="post">
    <!-- progressbar -->
@@ -176,8 +257,8 @@ body {
       <h2 class="fs-title">Leadership</h2>
       <table class="tabel" >
             <tr>
-                     <th width="300px">ID Staff</th>
-                    <th width="300px">Nama Staff</th>
+                     <th width="300px" style='text-align:left'>ID Staff</th>
+                    <th width="600px" style='text-align:left' >Nama Staff</th>
 
                     <th width="300px">Sangat Kurang</th>
                     <th width="300px">Kurang</th>
@@ -191,13 +272,13 @@ body {
                foreach($Staff as $data)
                {
                   
-                  echo "<tr><td td style='text-align:center'>".$data->ID_Staff."</td></td>";
-                  echo "<td td style='text-align:center'>".$data->Nama."</td></td>";
+                  echo "<tr><td td style='text-align:left'>".$data->ID_Staff."</td></td>";
+                  echo "<td td style='text-align:left'>".$data->Nama."</td></td>";
                ?>
             
-               <td><input type='radio' name='nilai<?php echo $i?>' value='1' checked="checked"></td>
+               <td><input type='radio' name='nilai<?php echo $i?>' value='1'></td>
                <td><input type='radio' name='nilai<?php echo $i?>' value='2'></td>
-               <td><input type='radio' name='nilai<?php echo $i?>' value='3'></td>
+               <td><input type='radio' name='nilai<?php echo $i?>' value='3' checked="checked"></td>
                <td><input type='radio' name='nilai<?php echo $i?>' value='4'></td>
                <td><input type='radio' name='nilai<?php echo $i; $i=$i+1;?>' value='5'></td>
             
@@ -217,8 +298,8 @@ body {
       <h2 class="fs-title">Teamwork</h2>
       <table class="tabel" style="margin-left 10%">
             <tr>
-                     <th width="300px">ID Staff</th>
-                    <th width="300px">Nama Staff</th>
+                     <th width="300px" style='text-align:left'>ID Staff</th>
+                    <th width="600px" style='text-align:left'>Nama Staff</th>
 
                     <th width="300px">Sangat Kurang</th>
                     <th width="300px">Kurang</th>
@@ -232,14 +313,14 @@ body {
                foreach($Staff as $data)
                {
                   
-                  echo "<tr><td td style='text-align:center'>".$data->ID_Staff."</td></td>";
-                  echo "<td td style='text-align:center'>".$data->Nama."</td></td>";
+                  echo "<tr><td td style='text-align:left'>".$data->ID_Staff."</td></td>";
+                  echo "<td td style='text-align:left'>".$data->Nama."</td></td>";
                   
                ?>
             
-               <td><input type='radio' name='nilai1<?php echo $i?>' value='1' checked="checked"></td>
+               <td><input type='radio' name='nilai1<?php echo $i?>' value='1' ></td>
                <td><input type='radio' name='nilai1<?php echo $i?>' value='2'></td>
-               <td><input type='radio' name='nilai1<?php echo $i?>' value='3'></td>
+               <td><input type='radio' name='nilai1<?php echo $i?>' value='3'checked="checked"></td>
                <td><input type='radio' name='nilai1<?php echo $i?>' value='4'></td>
                <td><input type='radio' name='nilai1<?php echo $i; $i=$i+1;?>' value='5'></td>
             
@@ -262,8 +343,8 @@ body {
       <h2 class="fs-title">Problem Solving</h2>
       <table class="tabel" style="margin-left 10%">
             <tr>
-                     <th width="300px">ID Staff</th>
-                    <th width="300px">Nama Staff</th>
+                     <th width="300px" style='text-align:left'>ID Staff</th>
+                    <th width="600px" style='text-align:left'>Nama Staff</th>
 
                     <th width="300px">Sangat Kurang</th>
                     <th width="300px">Kurang</th>
@@ -277,13 +358,13 @@ body {
                foreach($Staff as $data)
                {
                  
-                  echo "<tr><td td style='text-align:center'>".$data->ID_Staff."</td></td>";
-                  echo "<td td style='text-align:center'>".$data->Nama."</td></td>";
+                  echo "<tr><td td style='text-align:left'>".$data->ID_Staff."</td></td>";
+                  echo "<td td style='text-align:left'>".$data->Nama."</td></td>";
                ?>
             
-               <td><input type='radio' name='nilai2<?php echo $i?>' value='1' checked="checked"></td>
+               <td><input type='radio' name='nilai2<?php echo $i?>' value='1' ></td>
                <td><input type='radio' name='nilai2<?php echo $i?>' value='2'></td>
-               <td><input type='radio' name='nilai2<?php echo $i?>' value='3'></td>
+               <td><input type='radio' name='nilai2<?php echo $i?>' value='3'checked="checked"></td>
                <td><input type='radio' name='nilai2<?php echo $i?>' value='4'></td>
                <td><input type='radio' name='nilai2<?php echo $i; $i=$i+1;?>' value='5'></td>
             
@@ -306,8 +387,8 @@ body {
       <h2 class="fs-title">Loyalitas</h2>
       <table class="tabel" style="margin-left 10%">
             <tr>
-                     <th width="300px">ID Staff</th>
-                    <th width="300px">Nama Staff</th>
+                     <th width="300px" style='text-align:left'>ID Staff</th>
+                    <th width="600px" style='text-align:left'>Nama Staff</th>
 
                     <th width="300px">Sangat Kurang</th>
                     <th width="300px">Kurang</th>
@@ -322,13 +403,13 @@ body {
                foreach($Staff as $data)
                {
                   
-                  echo "<tr><td td style='text-align:center'>".$data->ID_Staff."</td></td>";
-                  echo "<td td style='text-align:center'>".$data->Nama."</td></td>";
+                  echo "<tr><td td style='text-align:left'>".$data->ID_Staff."</td></td>";
+                  echo "<td td style='text-align:left'>".$data->Nama."</td></td>";
                ?>
             
-               <td><input type='radio' name='nilai3<?php echo $i?>' value='1' checked="checked"></td>
+               <td><input type='radio' name='nilai3<?php echo $i?>' value='1' ></td>
                <td><input type='radio' name='nilai3<?php echo $i?>' value='2'></td>
-               <td><input type='radio' name='nilai3<?php echo $i?>' value='3'></td>
+               <td><input type='radio' name='nilai3<?php echo $i?>' value='3'checked="checked"></td>
                <td><input type='radio' name='nilai3<?php echo $i?>' value='4'></td>
                <td><input type='radio' name='nilai3<?php echo $i; $i=$i+1;?>' value='5'></td>
                </tr>
@@ -348,8 +429,8 @@ body {
       <h2 class="fs-title">Kinerja</h2>
       <table class="tabel" style="margin-left 10%">
             <tr>
-                     <th width="300px">ID Staff</th>
-                    <th width="300px">Nama Staff</th>
+                     <th width="300px" style='text-align:left'>ID Staff</th>
+                    <th width="600px" style='text-align:left'>Nama Staff</th>
 
                     <th width="300px">Sangat Kurang</th>
                     <th width="300px">Kurang</th>
@@ -363,13 +444,13 @@ body {
                foreach($Staff as $data)
                {
                   
-                  echo "<tr><td td style='text-align:center'>".$data->ID_Staff."</td></td>";
-                  echo "<td td style='text-align:center'>".$data->Nama."</td></td>";
+                  echo "<tr><td td style='text-align:left'>".$data->ID_Staff."</td></td>";
+                  echo "<td td style='text-align:left'>".$data->Nama."</td></td>";
                ?>
             
-               <td><input type='radio' name='nilai4<?php echo $i?>' value='1' checked="checked"></td>
+               <td><input type='radio' name='nilai4<?php echo $i?>' value='1' ></td>
                <td><input type='radio' name='nilai4<?php echo $i?>' value='2'></td>
-               <td><input type='radio' name='nilai4<?php echo $i?>' value='3'></td>
+               <td><input type='radio' name='nilai4<?php echo $i?>' value='3'checked="checked"></td>
                <td><input type='radio' name='nilai4<?php echo $i?>' value='4'></td>
                <td><input type='radio' name='nilai4<?php echo $i; $i=$i+1;?>' value='5'></td>
                </tr>
@@ -391,8 +472,8 @@ body {
       <h2 class="fs-title">Attitude</h2>
       <table class="tabel" style="margin-left 10%">
             <tr>
-                     <th width="300px">ID Staff</th>
-                    <th width="300px">Nama Staff</th>
+                     <th width="300px" style='text-align:left'>ID Staff</th>
+                    <th width="600px" style='text-align:left'>Nama Staff</th>
 
                     <th width="300px">Sangat Kurang</th>
                     <th width="300px">Kurang</th>
@@ -406,13 +487,13 @@ body {
                foreach($Staff as $data)
                {
                   
-                  echo "<tr><td td style='text-align:center'>".$data->ID_Staff."</td></td>";
-                  echo "<td td style='text-align:center'>".$data->Nama."</td></td>";
+                  echo "<tr><td td style='text-align:left'>".$data->ID_Staff."</td></td>";
+                  echo "<td td style='text-align:left'>".$data->Nama."</td></td>";
                ?>
             
-               <td><input type='radio' name='nilai5<?php echo $i?>' value='1' checked="checked"></td>
+               <td><input type='radio' name='nilai5<?php echo $i?>' value='1' ></td>
                <td><input type='radio' name='nilai5<?php echo $i?>' value='2'></td>
-               <td><input type='radio' name='nilai5<?php echo $i?>' value='3'></td>
+               <td><input type='radio' name='nilai5<?php echo $i?>' value='3'checked="checked"></td>
                <td><input type='radio' name='nilai5<?php echo $i?>' value='4'></td>
                <input type="hidden" name='nilai6<?php echo $i?>' value='<?php echo $data->ID_Staff ?>' />
                <td><input type='radio' name='nilai5<?php echo $i; $i=$i+1;?>' value='5'></td>

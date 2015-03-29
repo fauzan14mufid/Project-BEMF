@@ -141,12 +141,90 @@ body {
 }
 
 
+.nav{
+   margin-left: auto;
+   margin-right: auto;
+   width: 30%;
+   position: relative;
+}
 
+.nav ul {
+  list-style: none;
+  background-color: #444;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+ 
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+ 
+.nav a:hover {
+  background-color: #005f5f;
+}
+ 
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+ 
+@media screen and (min-width: 200px) {
+  .nav li {
+    width: 200px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+ 
+  /* Option 1 - Display Inline */
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+
+
+ 
+  /* Options 2 - Float
+  .nav li {
+    float: left;
+  }
+  .nav ul {
+    overflow: auto;
+    width: 600px;
+    margin: 0 auto;
+  }
+  .nav {
+    background-color: #444;
+  }
+  */
+}
 
 </style>
 </head>
 
 <body >
+   <header>
+    <div class="nav">
+      <ul>
+        <li class="menuutama"><a href="<?php echo site_url('isi_absen/home') ?>">Menu Utama</a></li>
+        <li class="logout"><a href="<?php echo site_url('home/logout') ?>">Log Out</a></li>
+      </ul>
+    </div>
+  </header>
+
 <!-- multistep form -->
 <form id="msform" action="ambil_data_form" method="post">
 <!-- <form id="msform" action="localhost/sibemf/index.php/cformabsen/ambil_data_form" method="post"> -->
@@ -155,7 +233,7 @@ body {
    
    <!-- fieldsets -->
    <fieldset>
-      <h2 class="fs-title">Absensi Kehadiran Rapat Departemen ....</h2>
+      <h2 class="fs-title">Absensi Kehadiran Rapat Departemen <?php echo $_SESSION['departement']; ?></h2> 
       <h3 class="fs-subtitle">Rapat Detail</h3>
       <input type="text" name="nama_rapat" placeholder="Kegiatan Rapat" />
       <input type="date" name="tanggal_rapat" placeholder="Tanggal Rapat" />

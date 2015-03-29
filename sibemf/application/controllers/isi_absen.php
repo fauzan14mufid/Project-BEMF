@@ -25,8 +25,9 @@ class Isi_Absen extends CI_Controller {
         if(!isset($_SESSION['departemen'])){
             redirect('home/login');
         }   
-        echo $_SESSION['departemen'];
+        // echo $_SESSION['departemen'];
         $id_departemen = $_SESSION['departemen'];
+        $Nama=$_SESSION['departemen'];
         $data['Staff'] = $this->Staff->getStaffByDeptID($id_departemen)->result();
         $this->load->view('rapat_form',$data);
     }
@@ -60,6 +61,7 @@ class Isi_Absen extends CI_Controller {
 
            $this->Kehadiran->setKehadiran($data_kehadiran[$i]);
         }
+        redirect('all_rapat/daftar');
     }
 }
 

@@ -44,7 +44,9 @@ class Home extends CI_Controller {
                 $q=$this->User->getUserxDetail($username)->row();
                 session_start();
                 $id = $q->ID_Departemen;
+                $nama_departemen = $q->Nama;
                 $_SESSION['departemen'] = $id;
+                $_SESSION['departement'] = $nama_departemen;
                 redirect('isi_absen/home');
             }
         }
