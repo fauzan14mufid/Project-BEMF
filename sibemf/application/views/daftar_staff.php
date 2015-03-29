@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div id = "sospol" class = "halaman">
+    <div id = "sospol" class = "halaman" style="height:800px">
         <h1><?php
                     foreach($Departemen as $row){
                         if($row->ID_Departemen == 1) echo $row->Nama;
@@ -41,7 +41,7 @@
             </div>
         <div class ="col-md-4"></div>
     </div>
-    <div id = "internal" class="halaman">
+    <div id = "internal" class="halaman" style="height:800px">
         <h1> <?php
                     foreach($Departemen as $row){
                         if($row->ID_Departemen == 2) echo $row->Nama;
@@ -67,7 +67,7 @@
             </div>
         <div class ="col-md-4"></div>
     </div>
-    <div id = "minatbakat" class = "halaman">
+    <div id = "minatbakat" class = "halaman" style="height:800px">
         <h1> <?php
                     foreach($Departemen as $row){
                         if($row->ID_Departemen == 3) echo $row->Nama;
@@ -93,7 +93,7 @@
             </div>
         <div class ="col-md-4"></div>
     </div>
-    <div id = "relasi" class = "halaman">
+    <div id = "relasi" class = "halaman" style="height:800px">
         <h1> <?php
                     foreach($Departemen as $row){
                         if($row->ID_Departemen == 4) echo $row->Nama;
@@ -119,7 +119,7 @@
             </div>
         <div class ="col-md-4"></div>
     </div>
-    <div id = "bismit" class = "halaman">
+    <div id = "bismit" class = "halaman" style="height:800px">
         <h1> <?php
                     foreach($Departemen as $row){
                         if($row->ID_Departemen == 5) echo $row->Nama;
@@ -145,7 +145,7 @@
             </div>
         <div class ="col-md-4"></div>
     </div>
-    <div id = "kipi" class = "halaman">
+    <div id = "kipi" class = "halaman" style="height:800px">
         <h1> <?php
                 foreach($Departemen as $row){
                     if($row->ID_Departemen == 6) echo $row->Nama;

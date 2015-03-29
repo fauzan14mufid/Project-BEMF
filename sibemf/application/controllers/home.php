@@ -7,7 +7,6 @@
  */
 
 class Home extends CI_Controller {
-
     public function __construct()
     {
         parent::__construct();
@@ -22,13 +21,15 @@ class Home extends CI_Controller {
 
     public function logout()
     {
-        session_unset(); 
-        session_destroy();
+        $this->load->library('session');
+        $this->session->sess_destroy();
         redirect('home/login');
-        $this->clear_cache();
-        session_destroy();
     }
 
+    public function index()
+    {
+        $this->load->view('login');
+    }
 
     public function formlogin()
     {
@@ -37,8 +38,7 @@ class Home extends CI_Controller {
             $password = $this->input->post('password');
             $cmatch = $this->User->matchUser($username,$password);
             if($cmatch==0){
-                redirect('home/login');
-                session_destroy();
+                redirect('home/index');
             }
             else{
                 $q=$this->User->getUserxDetail($username)->row();
@@ -51,11 +51,9 @@ class Home extends CI_Controller {
             }
         }
         else{
-            redirect('home/login');
-            session_destroy();
+            redirect('home/index');
         }
     }
-
 }
 
 ?>

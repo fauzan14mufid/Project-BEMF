@@ -171,115 +171,38 @@
 
 	}
 
-.menu {
+ul{
 	margin-top: 40px;
 }
 
-.menu li{
+ul li{
 	margin-top: 0px;
 	margin-left: 40px;
 	margin-right: 40px;
 	padding: 30px;
 }
-
 .judul{
 	margin-top: 100px;
 	margin-bottom: 0px;
 	padding-bottom: 0px;
 }
 
-.nav{
-   margin-left: auto;
-   margin-right: auto;
-   width: 16%;
-   position: relative;
-}
-
-.nav ul {
-  list-style: none;
-  background-color: #444;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
-.nav li {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.2em;
-  line-height: 40px;
-  height: 40px;
-  border-bottom: 1px solid #888;
-}
- 
-.nav a {
-  text-decoration: none;
-  color: #fff;
-  display: block;
-  transition: .3s background-color;
-}
- 
-.nav a:hover {
-  background-color: #005f5f;
-}
- 
-.nav a.active {
-  background-color: #fff;
-  color: #444;
-  cursor: default;
-}
- 
-@media screen and (min-width: 200px) {
-  .nav li {
-    width: 200px;
-    border-bottom: none;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.4em;
-  }
- 
-  /* Option 1 - Display Inline */
-  .nav li {
-    display: inline-block;
-    margin-right: -4px;
-  }
-
-
- 
-  /* Options 2 - Float
-  .nav li {
-    float: left;
-  }
-  .nav ul {
-    overflow: auto;
-    width: 600px;
-    margin: 0 auto;
-  }
-  .nav {
-    background-color: #444;
-  }
-  */
-}
 </style>
 
     
 
 <!--	<script src="JS.js"> </script>-->
-	<link href="style.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo asset_url();?>submenu/style.css" rel="stylesheet" type="text/css">
 
     <title>Menu BPH</title>
 </head>
 <body>
-	<header>
-    <div class="nav">
-      <ul> 
-        <li class="logout"><a href="<?php echo site_url('home/logout') ?>">Log Out</a></li>
-      </ul>
-    </div>
-  </header>
     <h1 class="judul">Menu Badan Pengurus harian Departemen <?php echo $_SESSION['departement']; ?></h1>
     
-<ul class="menu">
-  <li><a href="<?php echo base_url();?>isi_absen/isi" class="round green">Absen<span class="round">Memasukkan Absensi Staff BEM FTIf.</span></a></li>
-  <li><a href="<?php echo base_url();?>all_nilai/nilai" class="round red">Penilaian<span class="round">Memasukkan Penilaian Perbulan Staff BEM FTIf. </span></a></li>
+<ul>
+    <li><a href="<?php echo base_url();?>isi_absen/isi" class="round green">Absen<span class="round">Memasukkan Absensi Staff BEM FTIf.</span></a></li>
+    <li><a href="<?php echo base_url();?>all_nilai/nilai" class="round red">Penilaian<span class="round">Memasukkan Penilaian Perbulan Staff BEM FTIf. </span></a></li>
+    <li><a href="<?php echo base_url();?>all_rapat/daftar" class="round yellow">Report<span class="round">Lihat Daftar Rapat Departemen <?php echo $_SESSION['departement']; ?>. </span></a></li>
 </ul> 
 </body>
 </html>

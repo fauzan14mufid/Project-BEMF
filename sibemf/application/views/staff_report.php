@@ -7,81 +7,11 @@
     <link rel="stylesheet" href="<?php echo asset_url();?>staff.css">
     <script type="text/javascript" src="<?php echo asset_url();?>jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="<?php echo asset_url();?>bootstrap.min.js"></script>
-<style type="text/css">
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-@import url(http://fonts.googleapis.com/css?family=Roboto);
 
-img{
-  max-width: 95%;
-  height: auto;
-  margin: 0 auto;
-}
-
-body{
-	font-family: 'Open Sans',sans-serif;
-	background-color: #f1f1f2;
-	padding: 10px;
-}
-
-.tab-content{
-	text-align: left;
-	margin-top: 15px;
-	padding-left: 15px;
-}
-
-#back{
-	font-size: 8pt;
-	color: #4f5c5d;
-	width: 90px;
-}
-
-#back a{
-	font-size : 15px;
-}
-
-a:hover{
-   text-decoration: none !important;
-}
-
-a:link {
-    color: #4f5c5d;
-}
-
-a:visited {
-    color: #4f5c5d;
-}
-
-#header{
-	font-family: 'Roboto',sans-serif;
-	text-align: center;
-
-}
-#header img{
-	max-width: 128px;
-}
-hr {
-  border-color: black;
-  width: 80%;
-}
-
-li .glyphicon{
-	padding: 4px;
-	padding-right: 12px;
-}
-
-.panel-heading {
-    cursor: pointer;
-}
-
-.img-circle {
-  border-radius: 50%;
-}
-}
-</style>
 </head>
 <body>
 	<div id = "back">
-		<a href="<?php echo site_url('all_staff/daftar') ?>"><span class="glyphicon glyphicon-arrow-left"></span> 
+		<a href="#"><span class="glyphicon glyphicon-arrow-left"></span> 
 		KEMBALI</a>
 	</div>
 	<img class="img-circle" alt="140x140" style = "width:10%; margin: 0 auto; display: block; " src = "<?php echo asset_url();?>2.png"/><div id = "header"><h3> <?php echo $Staff->Nama; ?> </h3><h4>  </h4></div>
