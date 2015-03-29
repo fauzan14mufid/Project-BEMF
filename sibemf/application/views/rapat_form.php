@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -243,12 +242,12 @@ body {
       
    </fieldset>
   
-   <fieldset style="width:600px;margin-left:-100px;">
+   <fieldset style="width:900px;margin-left:-250px;">
       <h2 class="fs-title">Absensi Kehadiran Staff</h2>
       <table class="tabel" style="margin-left 10%">
             <tr>
-                     <th width="300px">ID Staff</th>
-                    <th width="300px">Nama Staff</th>
+                     <th width="300px" style='text-align:left'>ID Staff</th>
+                    <th width="600px"style='text-align:left'>Nama Staff</th>
 
                     <th width="300px">Hadir</th>
                     <th width="300px">Izin</th>
@@ -260,7 +259,7 @@ body {
                foreach($Staff as $data)
                {
                   
-                  echo "<tr><td td style='text-align:center'>".$data->ID_Staff."</td></td>";
+                  echo "<tr><td td style='text-align:left'>".$data->ID_Staff."</td></td>";
                   echo "<td td style='text-align:left'>".$data->Nama."</td></td>";
                ?>
                
