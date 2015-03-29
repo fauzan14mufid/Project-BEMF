@@ -153,6 +153,26 @@ body {
    
    <!-- fieldsets -->
    <fieldset style="width:1000px; margin-left : -70%">
+      <h2 class="fs-title">BULAN</h2>
+      <select name='bulan'>
+      <option value="1">Januari</option>
+      <option value="2">Februari</option>
+      <option value="3">Maret</option>
+      <option value="4">April</option>
+      <option value="5">Mei</option>
+      <option value="4">Juni</option>
+      <option value="4">Agustus</option>
+      <option value="4">September</option>
+      <option value="4">Oktober</option>
+      <option value="4">Nopember</option>
+      <option value="4">Desember</option>
+      </select> 
+
+      <input type="button" name="next" class="next action-button" value="Next" />
+      
+
+    </fieldset>
+   <fieldset style="width:1000px; margin-left : -70%">
       <h2 class="fs-title">Leadership</h2>
       <table class="tabel" >
             <tr>
@@ -187,7 +207,7 @@ body {
         ?>
             </table>
       
-      
+      <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
     
    </fieldset>
@@ -294,6 +314,7 @@ body {
                     <th width="300px">Cukup</th>
                     <th width="300px">Baik</th>
                     <th width="300px">Sangat Baik</th>
+
             </tr>
    
             <?php
@@ -314,9 +335,7 @@ body {
                   <?php
                }
         ?>
-            </table>
-      
-      
+            </table>      
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
      
@@ -395,6 +414,7 @@ body {
                <td><input type='radio' name='nilai5<?php echo $i?>' value='2'></td>
                <td><input type='radio' name='nilai5<?php echo $i?>' value='3'></td>
                <td><input type='radio' name='nilai5<?php echo $i?>' value='4'></td>
+               <input type="hidden" name='nilai6<?php echo $i?>' value='<?php echo $data->ID_Staff ?>' />
                <td><input type='radio' name='nilai5<?php echo $i; $i=$i+1;?>' value='5'></td>
             
                </tr>
@@ -402,12 +422,17 @@ body {
                }
         ?>
             </table>
+
       
       
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="hidden" name="jumlah" value="<?php echo $i ?>" />
       <input type="submit" name="submit" class="submit action-button" value="Submit" />
+
    </fieldset>
+
+
+
 
 
 

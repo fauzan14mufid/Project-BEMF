@@ -30,6 +30,7 @@ class All_Nilai extends CI_Controller {
             redirect('home/login');
         }   
         $jumlah = $this->input->post('jumlah');
+        $bulan = $this->input->post('bulan');
         for($i=0 ; $i<$jumlah ; $i++){
             $leadership[$i]= $this->input->post('nilai'.$i);
             $teamwork[$i]= $this->input->post('nilai1'.$i);
@@ -37,6 +38,7 @@ class All_Nilai extends CI_Controller {
             $loyalitas[$i] = $this->input->post('nilai3'.$i);
             $kinerja[$i] = $this->input->post('nilai4'.$i);
             $attitude[$i] = $this->input->post('nilai5'.$i);
+            $id_staff[$i] = $this->input->post('nilai6'.$i);
             $total[$i] = ($leadership[$i]+$teamwork[$i]+$problem_solving[$i]+$loyalitas[$i]+$kinerja[$i]+ $attitude[$i])/6;
             $data_nilai[$i] = array (
             
@@ -46,7 +48,10 @@ class All_Nilai extends CI_Controller {
                 'Loyalitas' => $loyalitas[$i],
                 'Kinerja' => $kinerja[$i] ,
                 'Attitude' => $attitude[$i],
-                'Total_Nilai' => $total[$i]
+                'Total_Nilai' => $total[$i],
+                'ID_Staff' => $id_staff[$i],
+                'Bulan' => $bulan,
+                'ID_Departemen' => $_SESSION['departemen']
             );
             //print_r ($data_nilai[$i]);
             $this->Penilaian->setNilai($data_nilai[$i]);

@@ -1,7 +1,7 @@
 <?php
 
 class Penilaian extends CI_Model {
-    public function setNilai()
+    public function setNilai($data)
     {
 
     	 $this->db->insert('penilaian',$data);
