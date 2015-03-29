@@ -7,7 +7,7 @@ img{
 }
 
 h1{
-  font-size: 3em;
+  font-size: 33px;
   font-weight: bold;
 }
 a:hover{
@@ -54,10 +54,11 @@ td a {
   font-family:'Open Sans',sans-serif;
   padding: 24px;
   color: white;
-  min-height: 735px;
+  /*min-height: 735px;*/
   display: block;
   position: relative;
   text-align: center;
+  height:900px;
 }
 .section{  
   padding: 10px; 
