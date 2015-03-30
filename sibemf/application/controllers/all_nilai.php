@@ -56,7 +56,7 @@ class All_Nilai extends CI_Controller {
             //print_r ($data_nilai[$i]);
             $this->Penilaian->setNilai($data_nilai[$i]);
         }
-        redirect('isi_absen/home');
+        redirect("all_staff/monthly/$bulan");
 
         
     }
